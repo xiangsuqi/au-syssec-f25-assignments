@@ -1,5 +1,7 @@
 # Task 1: CBC Padding Oracle
 
+_Disclaimer_: If you have solved this challenge as part of the DISSY CTF, please pick another one as instructed in class.
+
 ## Your Task
 
 You are given the source code of a simple website that distributed quotes.
