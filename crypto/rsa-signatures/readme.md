@@ -19,7 +19,7 @@ Afterwards, you can attack a version of the website hosted [here](https://rsasig
 
 ### Task 3: Implementing RSA-PSS
 
-_Disclaimer_: If you use LLMs to generate part of the code in this task, prepare to defend their choices in your report.
+_Disclaimer_: If you use LLMs to generate part of the code in this task, prepare to defend their choices in your report. You also must disclose this usage, as per university guidelines.
 
 Textbook RSA signatures are not secure. An attacker is able to obtain
 signatures for messages that were never signed as such.
