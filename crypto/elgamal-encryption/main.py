@@ -23,7 +23,7 @@ def encrypt(message: bytes) -> bytes:
     m = int.from_bytes(message, 'big')
     if not 0 <= m < p:
         raise ValueError('message too large')
-    # compute the signature
+    # compute the encryption
     y = secrets.randbelow(p - 1)
     c1 = pow(g, y, p)
     c2 = m * pow(h, y, p) % p
@@ -48,7 +48,7 @@ def decrypt(ciphertext: bytes) -> bool:
     c2 = int.from_bytes(c[length:], 'big')
     if not 0 <= c1 < p or not 0 <= c2 < p:
         raise ValueError('ciphertext too large')
-    # decrypt the signature
+    # decrypt the ciphertext
     s = pow(c1, -x, p)
     m = c2 * s % p
     return m
@@ -103,7 +103,7 @@ def grade():
             # decode the hexadecimal encoded byte strings
             msg = bytes.fromhex(j['msg'])
             ciphertext = bytes.fromhex(j['ciphertext'])
-            # check if the signature is valid
+            # check if the decryption is correct
             if decrypt(ciphertext) != b'You got a 12 because you are an excellent student! :)':
                 return '<p>Hm, are you trying to cheat?.</p>'
             return f'<p>{msg.decode()}</p>'
@@ -171,7 +171,7 @@ def encrypt_random_document_for_student(data):
         return '<p>Haha, nope!</p>'
     try:  # try to encrypt the message
         ciphertext = encrypt(msg)
-        # return message and signature hexadecimal encoded in a JSON object
+        # return message and ciphertext hexadecimal encoded in a JSON object
         return {'msg': msg.hex(), 'ciphertext': ciphertext.hex()}
     except Exception as e:  # something went wrong
         return {'error': str(e)}
