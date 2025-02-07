@@ -33,7 +33,7 @@ def encrypt(message: bytes) -> bytes:
     return ciphertext
 
 
-def decrypt(ciphertext: bytes) -> bool:
+def decrypt(ciphertext: bytes) -> bytes:
     """Decrypt a ciphertext using our private key."""
     # modulus and private exponent
     p = elgamal_key['_p']
@@ -84,7 +84,7 @@ def index():
 
 
 @app.route('/params/')
-def pk():
+def params():
     """Publish our parameters as JSON."""
     p = int(elgamal_key['_p'])
     g = int(elgamal_key['_g'])
@@ -101,12 +101,12 @@ def grade():
             # deserialize the JSON object which we expect in the cookie
             j = json.loads(c)
             # decode the hexadecimal encoded byte strings
-            msg = bytes.fromhex(j['msg'])
             ciphertext = bytes.fromhex(j['ciphertext'])
+            msg = long_to_bytes(decrypt(ciphertext))
             # check if the decryption is correct
-            if decrypt(ciphertext) != b'You got a 12 because you are an excellent student! :)':
+            if msg != b'You got a 12 because you are an excellent student! :)':
                 return '<p>Hm, are you trying to cheat?.</p>'
-            return f'<p>{msg.decode()}</p>'
+            return f'<quote>\n{secrets.choice(quotes)}</quote>'
         except Exception as e:
             # if something goes wrong, delete the cookie and try again
             response = redirect(url_for('grade'))
