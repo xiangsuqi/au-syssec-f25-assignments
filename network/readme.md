@@ -2,7 +2,7 @@
 
 ## Your Task(s)
 
-The assignment has *four* tasks, covering both constructive and destructive aspect of networks: (1) the first deals with implementing an encrypted covert channel; (2) the second with implementing a TCP throttling/DoS tool; (3) the third with implementing a session hijacking attack against a TCP connection; and (4) the third with implementing a small VPN tunneling program.
+The assignment has *four* tasks, covering both constructive and destructive aspect of networks: (1) the first deals with implementing an encrypted covert channel; (2) the second with implementing a TCP throttling/DoS tool; (3) the third with implementing a session hijacking attack against a TCP connection; and (4) the fourth with implementing a small VPN tunneling program.
 
 ### Task 1: Encrypted covert channel
 
