@@ -31,7 +31,7 @@ Collect experimental evidence of the malicious behavior through Wireshark, and s
 
 **Note**: The experimental part in this task can be difficult to assemble. We suggest having the destination as an Internet host, to guarantee some latency; and the source and attacker to be in the same local network, with the attacker being the router that receives all traffic from the source (as in the network security lab exercise). This allows the attacker to get their ACKs accepted before the legitimate ones arrive. You may face countermeasures along the way that negate the attack, but in that case make sure to *document* your negative results.
 
-### Task 3: Session hijacking
+### Task 3: TCP Session hijacking
 
 This part overlaps with the previous task, in the sense that the experimental setup is similar and requires the same tools, so doing the two tasks together might be beneficial for a group.
 
