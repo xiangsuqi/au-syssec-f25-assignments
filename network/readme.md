@@ -35,9 +35,8 @@ Collect experimental evidence of the malicious behavior through Wireshark, and s
 
 This part overlaps with the previous task, in the sense that the experimental setup is similar and requires the same tools, so doing the two tasks together might be beneficial for a group.
 
-The objective of this task is to hijack an ongoing TCP connection to perform traffic manipulation attacks. One way to leverage 
-
-You will implement a tool that received a souce and destination IP addresses to listen for TCP connections carrying HTTP traffic. The tool should be executed on a third node with access to the traffic. Whever a HTTP packet is captured, the tool should inpect the payload in search of an HTTP session cookie, steal it and perform an HTTP method on behalf of the source.
+The objective of this task is to hijack an ongoing TCP connection to perform traffic manipulation attacks. One way for an attacker to leverage a privileged network position is monitoring TCP sequence numbers and introduce new traffic that is accepted by one of the connection endpoints.
+You will implement a tool that receives a souce and destination IP addresses to listen for TCP connections carrying HTTP traffic. The tool should be executed on a third node with access to the traffic. Whever a HTTP packet is captured, the tool should inpect the payload in search of an HTTP session cookie, steal it and perform an HTTP method on behalf of the source.
 For the experimental setup, you can try using virtual machines, or leveraging the VM used for practical exercises as a malicious node to interfere with connections between the host machine and the HTTP server.
 Collect experimental evidence of the malicious behavior through Wireshark, showing that the forged request was indeed send to the HTTP server.
 
