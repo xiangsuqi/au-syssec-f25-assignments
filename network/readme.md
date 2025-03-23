@@ -36,11 +36,19 @@ Collect experimental evidence of the malicious behavior through Wireshark, and s
 This part overlaps with the previous task, in the sense that the experimental setup is similar and requires the same tools, so doing the two tasks together might be beneficial for a group.
 
 The objective of this task is to hijack an ongoing TCP connection to perform traffic manipulation attacks. One way for an attacker to leverage a privileged network position is monitoring TCP sequence numbers and introduce new traffic that is accepted by one of the connection endpoints.
-You will implement a tool that receives a souce and destination IP addresses to listen for TCP connections carrying HTTP traffic. The tool should be executed on a third node with access to the traffic. Whever a HTTP packet is captured, the tool should inpect the payload in search of an HTTP session cookie, steal it and perform an HTTP method on behalf of the source.
+You will implement a tool that receives a source and destination IP addresses to listen for TCP connections carrying HTTP traffic. The tool should be executed on a third node with access to the traffic. Whenever a HTTP packet is captured, the tool should inspect the payload in search of an HTTP session cookie, steal it and perform an HTTP method on behalf of the source.
 For the experimental setup, you can try using virtual machines, or leveraging the VM used for practical exercises as a malicious node to interfere with connections between the host machine and the HTTP server.
 Collect experimental evidence of the malicious behavior through Wireshark, showing that the forged request was indeed send to the HTTP server.
 
 **Note**: The experimental part in this task can be difficult to assemble. We suggest having the destination as an Internet host running an HTTP server, with the source and attacker in the same local network. The attacker should be the router that receives all traffic from the source (as in the network security lab exercise). You can use the simple-website application made available in the network security lab exercises as a simple web server.
+For your convenience, the web server has been included here, in the subfolder "simple-website".
+Run the web server with the command:
+
+```
+flask --app main.py run
+```
+
+Observe that when you log in, the server gives you a cookie.
 
 ### Task 4: Mini TLS-based VPN tunneling
 
